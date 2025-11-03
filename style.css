@@ -1,0 +1,286 @@
+/* ========= iOS LIGHT & DARK THEMES ========= */
+:root{
+  --bg:#f6fbff;
+  --text:#101317;
+  --muted:#6b7280;
+  --panel:#ffffff;
+  --chip:#f3f6fb;
+  --accent:#10b981;      /* emerald */
+  --accent-2:#34d399;    /* mint */
+  --line:#e8ecf3;
+  --ring:rgba(16,185,129,.18);
+  color-scheme: light;
+}
+
+:root[data-theme="dark"] body {
+  background: linear-gradient(180deg, #071a12 0%, #0e2b1a 60%, #0f1117 100%);
+  background-attachment: fixed;
+}
+
+
+/* ========= BASE ========= */
+* {
+  box-sizing: border-box;
+}
+
+html, body {
+  height: 100%;
+}
+
+html body {
+  background: radial-gradient(900px 400px at 10% 0%, rgba(108, 255, 180, 0.25), transparent 60%),
+              radial-gradient(900px 400px at 90% 100%, rgba(140, 255, 210, 0.25), transparent 60%),
+              linear-gradient(180deg, #fafffa 0%, #f6fff8 50%, #ffffff 100%);
+  background-attachment: fixed;
+  transition: background 0.4s ease, color 0.3s ease;
+}
+
+
+
+/* ========= FIXED TOP BAR ========= */
+.topbar {
+  position: fixed;
+  inset: 0 0 auto 0;
+  height: 60px;
+  z-index: 100;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  padding: 0 16px;
+  backdrop-filter: saturate(180%) blur(12px);
+  -webkit-backdrop-filter: saturate(180%) blur(12px);
+  background: color-mix(in oklab, var(--panel) 70%, transparent);
+  border-bottom: 1px solid var(--line);
+}
+
+.brand {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  font-weight: 800;
+  letter-spacing: 0.2px;
+}
+
+.brand .dot {
+  width: 10px;
+  height: 10px;
+  border-radius: 999px;
+  background: linear-gradient(135deg, var(--accent), var(--accent-2));
+}
+
+.top-actions {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+/* ===== Theme Button ===== */
+.theme-switch {
+  width: 42px;
+  height: 42px;
+  border-radius: 12px;
+  border: 1px solid var(--line);
+  background: var(--panel);
+  color: var(--text);
+  display: grid;
+  place-items: center;
+  cursor: pointer;
+  box-shadow: 0 12px 30px -16px var(--ring);
+  transition: 0.2s ease;
+}
+
+.theme-switch:hover {
+  transform: translateY(-1px);
+}
+
+/* ===== Small CTA in Topbar ===== */
+.top-cta {
+  padding: 9px 12px;
+  border-radius: 12px;
+  border: 1px solid transparent;
+  background: linear-gradient(135deg, var(--accent), var(--accent-2));
+  color: #fff;
+  font-weight: 700;
+  text-decoration: none;
+  box-shadow: 0 12px 30px -16px var(--ring);
+}
+
+/* ========= LAYOUT ========= */
+.container {
+  max-width: 980px;
+  margin: 0 auto;
+  padding: 22px;
+}
+
+.page {
+  padding-top: 80px; /* compensate fixed bar */
+}
+
+/* ========= HERO ========= */
+.hero {
+  display: grid;
+  gap: 12px;
+  border-radius: 22px;
+  padding: 22px;
+  background: linear-gradient(180deg, color-mix(in oklab, var(--panel) 85%, #fff 15%), var(--panel));
+  border: 1px solid var(--line);
+  box-shadow: 0 24px 48px -28px var(--ring);
+}
+
+.hero-head {
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  gap: 12px;
+  flex-wrap: wrap;
+}
+
+.title {
+  margin: 0;
+  font-size: 26px;
+  letter-spacing: 0.2px;
+}
+
+.subtitle {
+  margin: 0;
+  color: var(--muted);
+}
+
+/* ===== BADGES ===== */
+.badges {
+  display: flex;
+  gap: 8px;
+  flex-wrap: wrap;
+}
+
+.badge {
+  font-size: 12px;
+  padding: 6px 10px;
+  border-radius: 999px;
+  background: var(--chip);
+  border: 1px solid var(--line);
+  color: var(--muted);
+}
+
+/* ========= CTA BUTTONS ========= */
+.cta {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  margin-top: 4px;
+}
+
+.btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  text-decoration: none;
+  cursor: pointer;
+  padding: 12px 16px;
+  border-radius: 14px;
+  font-weight: 700;
+  border: 1px solid var(--line);
+  background: var(--panel);
+  color: var(--text);
+  box-shadow: 0 16px 36px -24px var(--ring);
+  transition: 0.2s ease;
+}
+
+.btn.primary {
+  background: linear-gradient(135deg, var(--accent), var(--accent-2));
+  color: #fff;
+  border-color: transparent;
+}
+
+.btn:hover {
+  transform: translateY(-1px);
+}
+
+/* ========= SECTIONS ========= */
+.section {
+  margin-top: 18px;
+  padding: 18px 18px 8px;
+  border-radius: 20px;
+  background: var(--panel);
+  border: 1px solid var(--line);
+  box-shadow: 0 16px 40px -32px var(--ring);
+}
+
+.section h2 {
+  margin: 0 0 10px;
+  font-size: 18px;
+  position: relative;
+  width: max-content;
+}
+
+.section h2::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: -6px;
+  height: 3px;
+  border-radius: 3px;
+  background: linear-gradient(90deg, var(--accent), var(--accent-2));
+}
+
+/* ========= LIST ITEMS ========= */
+.list {
+  list-style: none;
+  margin: 12px 0;
+  padding: 0;
+}
+
+.item {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  padding: 14px 16px;
+  border-radius: 16px;
+  background: var(--chip);
+  border: 1px solid var(--line);
+  margin-bottom: 10px;
+}
+
+.item a {
+  font-weight: 600;
+  color: var(--text);
+  text-decoration: none;
+}
+
+.item a:hover {
+  text-decoration: underline;
+}
+
+.item .arrow {
+  opacity: 0.5;
+}
+
+/* ========= FOOTER ========= */
+.footer {
+  color: var(--muted);
+  text-align: center;
+  padding: 16px 0 26px;
+}
+
+/* ========= RESPONSIVE ========= */
+@media (max-width: 600px) {
+  .title {
+    font-size: 22px;
+  }
+/* ===== FINAL BACKGROUND OVERRIDE — keep at the very end ===== */
+
+/* Light theme: fresh white–green */
+html body{
+  background: linear-gradient(180deg, #f7fff7 0%, #eaffea 60%, #ffffff 100%) !important;
+  background-attachment: fixed !important;
+}
+
+/* Dark theme: deep green */
+:root[data-theme="dark"] html body{
+  background: linear-gradient(180deg, #071a12 0%, #0e2b1a 60%, #0f1117 100%) !important;
+  background-attachment: fixed !important;
+}
+}
